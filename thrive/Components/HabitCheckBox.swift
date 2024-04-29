@@ -15,33 +15,43 @@ struct HabitCheckBox: View {
             habit.toggleCompletion()
         }) {
             HStack {
-                if habit.isChecked {
-                    Image(systemName: "checkmark")
-                        .foregroundColor(Color("color1"))
-                        .padding(10)
-                        .background(Color.white)
-                        .clipShape(Circle())
-                } else {
-                    Image(systemName: "questionmark")
-                        .foregroundColor(.white)
-                        .padding(10)
-                        .background(Color("color1"))
-                        .clipShape(Circle())
-                }
+                Text("\(habit.emoji ?? "⭐️")")
+                    .font(.system(size: 35))
+                    .foregroundColor(Color(.white))
+                    .padding(10)
+                    .background(Color("taupe"))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
                 
-                Spacer()
+
+                
+         
 
                 Text("\(habit.name)")
                     .font(.title2)
                     .fontWeight(.regular)
-                    .foregroundStyle(habit.isChecked ? .white : Color("color1"))
+                    .foregroundStyle(Color("taupe4"))
                     .padding(.leading, 10)
                 
                 Spacer()
+                
+                if habit.isChecked {
+                    Image(systemName: "checkmark")
+                        .foregroundColor(Color("taupe3"))
+                        .padding(10)
+//                        .background(Color.white)
+//                        .clipShape(Circle())
+                } else {
+                    Image(systemName: "plus")
+                        .foregroundColor(Color("taupe4"))
+                        .padding(10)
+//                        .background(Color.white)
+//                        .clipShape(Circle())
+                }
             }
-            .padding(.horizontal, 30)
-            .padding(.vertical, 13)
-            .background(habit.isChecked ? Color("color1") : .white)
+            .padding(.trailing, 20)
+            .padding(.leading,10)
+            .padding(.vertical, 15)
+            .background(.white)
             .clipShape(RoundedRectangle(cornerRadius: 24))
         }
         .padding(.horizontal)
@@ -50,5 +60,9 @@ struct HabitCheckBox: View {
 }
 
 #Preview {
-    HabitCheckBox(habit: .constant(Habit.MOCK_HABITS[0]))
+    HStack {
+        HabitCheckBox(habit: .constant(Habit.MOCK_HABITS[0]))
+            .padding(.horizontal)
+    }
+    .background(.blue)
 }

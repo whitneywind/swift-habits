@@ -10,6 +10,7 @@ struct Habit: Identifiable, Hashable, Codable {
     let id: String
     var name: String
     var details: String?
+    var emoji: String?
     var isChecked: Bool
     var completionDates: [Date]
     var currentStreak: Int
@@ -47,8 +48,8 @@ class Habits: ObservableObject {
         habitData = []
     }
     
-    func addHabit(name: String, details: String) {
-        let newHabit = Habit(id: NSUUID().uuidString, name: name, details: details, isChecked: false, completionDates: [], currentStreak: 0)
+    func addHabit(name: String, details: String, emoji: String) {
+        let newHabit = Habit(id: NSUUID().uuidString, name: name, details: details, emoji: emoji, isChecked: false, completionDates: [], currentStreak: 0)
         habitData.append(newHabit)
     }
     

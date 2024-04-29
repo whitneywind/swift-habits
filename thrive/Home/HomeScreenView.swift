@@ -20,7 +20,7 @@ struct HomeScreenView: View {
                         Text(todaysDate.month)
                             .font(.title2)
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                            .foregroundStyle(.white)
+                            .foregroundColor(Color("taupe4"))
                     }
                     
                     // date selection scroll
@@ -32,7 +32,7 @@ struct HomeScreenView: View {
                                     
                                     VStack {
                                         Text(todaysDate.getShortenedWeekday(date: date))
-                                            .foregroundStyle(.white)
+                                            .foregroundColor(Color("taupe4"))
                                         
                                         ZStack {
                                             RoundedRectangle(cornerRadius: 25)
@@ -43,7 +43,7 @@ struct HomeScreenView: View {
                                             Text(todaysDate.getDayOfMonth(date: date))
                                                 .fontWeight(.bold)
                                                 .font(.title2)
-                                                .foregroundColor(Color("color1"))
+                                                .foregroundColor(Color("taupe4"))
                                                 .offset(x: 0, y: 0)
                                         }
                                     }
@@ -66,22 +66,22 @@ struct HomeScreenView: View {
             Text("Habits")
                 .font(.title2)
                 .fontWeight(.bold)
-                .foregroundStyle(.white)
+                .foregroundColor(Color("taupe4"))
             
             ZStack {
                 VStack {
                     ScrollView(showsIndicators: false) {
                         ForEach(HabitClass.habitData) { habit in
                             HabitCheckBox(habit: self.binding(for: habit))
+                                .padding(.horizontal, 30)
                         }
                     }
                     .padding(.vertical)
                 }
             }
         }
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.bottom)
-        .background(Color("color1"))
+        .background(Color("taupe"))
         
     }
     

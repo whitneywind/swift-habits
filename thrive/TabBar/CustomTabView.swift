@@ -33,8 +33,9 @@ struct TabBarView1: View {
             
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-            .background(Color("color1"))
+            .background(Color("taupe"))
         }
+        
     }
   }
 
@@ -76,7 +77,7 @@ fileprivate struct TabsLayoutView: View {
 //                                    .foregroundColor(tab.color)
                             }
 //                            .foregroundColor(tab.color)
-                            .foregroundColor(Color("color1"))
+                            .foregroundColor(Color("taupe1"))
                             .offset(y: -16)
                             .matchedGeometryEffect(id: "Selected Tab", in: namespace)
                             .animation(.spring(), value: selectedTab)
@@ -85,7 +86,7 @@ fileprivate struct TabsLayoutView: View {
                     
                     Image(systemName: tab.icon)
                         .font(.system(size: 23, weight: .semibold, design: .rounded))
-                        .foregroundColor(isSelected ? .white : .gray)
+                        .foregroundColor(isSelected ? .white : Color("taupe4"))
                         .scaleEffect(isSelected ? 1 : 0.8)
                         .offset(y: isSelected ? -16 : 0)
                         .animation(isSelected ? .spring(response: 0.5, dampingFraction: 0.3, blendDuration: 1) : .spring(), value: selectedTab)
@@ -103,7 +104,6 @@ fileprivate struct TabsLayoutView: View {
 struct TabBarView1_Previews: PreviewProvider {
     static var previews: some View {
         TabBarView1()
-            .padding(.horizontal)
     }
 }
 
